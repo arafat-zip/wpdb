@@ -60,7 +60,6 @@ class Db_Delta_External_DB {
         );
     }
     function db_delta_page() {
-        check_ajax_referer('db_delta_ajax');
         $tab = isset( $_GET['tab']) ? $_GET['tab'] : 'list';
         $id = isset( $_GET['id']) ? $_GET['id'] : 0;
         switch( $tab ){
@@ -85,6 +84,7 @@ class Db_Delta_External_DB {
         include 'templates/edit_contact.php';
     }
     function db_delta_ajax_form() {
+        check_ajax_referer('db_delta_ajax');
         $name = sanitize_text_field( $_POST['name'] );
         $phone = sanitize_text_field( $_POST['phone'] );
         $email = sanitize_text_field( $_POST['email'] );
