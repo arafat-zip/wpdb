@@ -7,9 +7,11 @@ jQuery(document).ready(function($){
         }
         $.ajax({
             url: dbDelta.ajax_url,
+
             method: 'POST',
             data: {
                 action: 'db_delta_ajax_form',
+                _ajax_nonce: dbDelta.ajax_nonce,
                 name: $('#name').val(),
                 phone: $('#phone').val(),
                 email: $('#email').val()
