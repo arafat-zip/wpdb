@@ -19,13 +19,13 @@ class Db_Delta_External_DB {
         if ( $hook !== 'toplevel_page_db_delta' ) {
             return;
         }
-        wp_enqueue_style( 'd-delta-style', plugin_dir_url( __FILE__ ) . 'assets/css/style.css',[] , time() );
-        wp_enqueue_script( 'd-delta-script', plugin_dir_url( __FILE__ ) . 'assets/js/script.js',['jquery'], time() );
+        wp_enqueue_style( 'db-delta-style', plugin_dir_url( __FILE__ ) . 'assets/css/style.css',[] , time() );
+        wp_enqueue_script( 'db-delta-script', plugin_dir_url( __FILE__ ) . 'assets/js/script.js',['jquery'], time() );
         $data = [
             'ajax_url' => admin_url( 'admin-ajax.php' ),
             'ajax_nonce' => wp_create_nonce( 'db_delta_ajax' ),
         ];
-        wp_localize_script( 'd-delta-script', 'dbDelta', $data );
+        wp_localize_script( 'db-delta-script', 'dbDelta', $data );
     }
     function activate() {
         if (! function_exists( 'dbDelta' )) {
